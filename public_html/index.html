@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+    <!-- DEBUGGING TO-DO LIST 
+        <ul>
+            <li>align hexes
+            <li>darken second onload paragraph text
+            <li>align button hover text individually
+            <li>disable email before first level hover 
+            <li>update text changing script with JSON, clean script 
+        </ul>-->
+    <head>
+        <!-- - - - declarations - - - -->
+        <meta charset="UTF-8">
+        <title>Welcome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- links - - - -->
+        <link href="CSS/main.css" rel="stylesheet" type="text/css">
+        <link href="CSS/hex.css" rel="stylesheet" type="text/css">
+        <!-- - - - onload specific scripts - - - -->
+        <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+        <script src="js/windowSizing.js"></script>
+    </head>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <body class="hexBody hidden">
+        <header>
+             <div class="headerText">Kelly B Ward</div>
+        </header><!-- header -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <nav id="navOuterContainer" class="pointer">
+            <nav id="mainMenu" class="">
+                <div id="mainMenuButtons" class="">
+                    <a id="menuButton" class="" onmouseover="activateLevelOne(this)">
+                        <img class="hex" src="images/hex.png"
+                            alt="image fail">
+                        <img class="image" id="menuImage" src="images/menu.png" alt="image fail">
+                    </a>
+                    
+                    <a id="faceBookButton" class=""
+                        href="https://www.facebook.com/kelly.b.ward.10"
+                        target="_blank">
+                        <img class="hex" src="images/hex.png" alt="image fail">
+                        <img class="image" src="images/Facebook_image.png" alt="image fail">
+                    </a>
+                    
+                    <a id="linkedInButton" class=""
+                        href="https://www.linkedin.com/pub/kelly-ward/102/a28/362"
+                        target="_blank">
+                        <img class="hex" src="images/hex.png" alt="image fail">
+                        <img class="image" src="images/linkedin_image.png" alt="image fail">
+                    </a>
+                    
+                </div>
+            </nav><!-- main menu buttons -->
+
+            <nav id="menuSubLevelOne" class="hidden transition">
+                <div id="menuSubLevelOneButtons" class="">
+                    <a id="resumeButton" class="" href="resume.html" onmouseover="textSelector(this)">
+                        <img class="hex" src="images/hex.png" alt="image fail">
+                        <div class="" id="resumeImageContainer" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                            <img class="image" src="images/Resume_image.png" alt="image fail">
+                            <p id="resumeTextAdjust" class="hidden hoverTextextAdjustment">Resume</p>
+                        </div>
+                    </a>
+                    
+                    <a id="aboutButton" class="" href="about.html" onmouseover="textSelector(this)">
+                        <img class="hex" src="images/hex.png" alt="image fail">
+                        <div class="" id="aboutImageContainer" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                            <img class="image" src="images/about.png" alt="image fail">
+                            <p id="aboutTextAdjust" class="hidden hoverTextextAdjustment">About Me</p>
+                        </div>
+                    </a>
+                    
+                    <a id="skillsButton" class="" href="skills.html" onmouseover="textSelector(this)">
+                        <img class="hex" src="images/hex.png" alt="image fail">
+                        <div class="" id="skillsImageContainer" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">
+                            <img class="image" src="images/Skills.png" alt="image fail">
+                            <p id="skillsTextAdjust" class="hidden hoverTextextAdjustment">Skills<br>and<br>Education</p>
+                        </div>
+                    </a>
+                    
+                    <a id="emailButton" class=""
+                       href="mailto:contact@kellybward.com?subject=Web-resume contact email">
+                        <img class="hex" src="images/hex.png"
+                            alt="image fail">
+                        <img class="image" src="images/Contact2.png" alt="image fail" onmouseover="activateLevelOne(menuButton)">
+                    </a>
+                </div>
+            </nav><!-- menu sub level one -->
+
+            <nav id="menuSubLevelTwo" class="transitionNull pointer">
+                <div id="menuSubLevelTwoButtons" class="">
+                    <div id="resumeSubButtons" class="">
+                        <a id="resumeSubButtonFour" class="hidden transition1" onclick="boxController(resumeButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                2000 - 2005<br>
+                                Resume
+                            </p>
+                        </a>
+                        <a id="resumeSubButtonThree" class="hidden transition2" onclick="boxController(resumeButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                2006 - 2010<br>
+                                Resume
+                            </p>
+                        </a>
+                        <a id="resumeSubButtonTwo" class="hidden transition3" onclick="boxController(resumeButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                2011 - 2015<br>
+                                Resume
+                            </p>
+                        </a>
+                        <a id="resumeSubButtonOne" class="hidden transition4" onclick="boxController(resumeButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                2016 - 2020<br>
+                                Resume
+                            </p>
+                        </a>
+                    </div>
+                    
+                    <div id="aboutSubButtons" class="">
+                        <a id="aboutSubButtonFour" class="hidden transition1" onclick="boxController(aboutButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                Family
+                            </p>
+                        </a>
+                        <a id="aboutSubButtonThree" class="hidden transition2" onclick="boxController(aboutButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                Contact<br>Information
+                            </p>
+                        </a>
+                        <a id="aboutSubButtonTwo" class="hidden transition3" onclick="boxController(aboutButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                Goals
+                            </p>
+                        </a>
+                        <a id="aboutSubButtonOne" class="hidden transition4" onclick="boxController(aboutButton, this)">
+                            <img class="hex" src="images/hex.png" alt="no image loaded">
+                            <p class="text_adjust"> 
+                                Projects
+                            </p>
+                        </a>
+                    </div>
+                    
+                    <div id="skillsSubButtons" class="">
+                        <a id="skillsSubButtonTwo" class="hidden transition1" onclick="boxController(skillsButton, this)">
+                            <img class="hex" src="images/hex.png" alt="image fail">
+                            <p class="text_adjust"> 
+                                Education
+                            </p>
+                        </a>
+                        <a id="skillsSubButtonOne" class="hidden transition2" onclick="boxController(skillsButton, this)">
+                            <img class="hex" src="images/hex.png" alt="image fail">
+                            <p class="text_adjust"> 
+                                Skill<br>
+                                Charts
+                            </p>
+                        </a>
+                    </div>
+                </div> 
+            </nav><!-- menu sub level two -->
+            
+            <nav id="subTextContainer" class="transitionNull">
+                <div class="" id="loadTextContainer">
+                    <p class="fadeText">Aspiring software developer looking for entry level development positions in the Charlotte, NC area.</p> <br><br> 
+                    Welcome to my web-resume. Please use the navigation panel to the left to visit additional pages. <br>
+                    References and personal information available upon request.
+                </div>
+                
+                <div id="resumeSubText" class="hidden textPosition">     
+                    <div id="resume1" class="sub1">Work time line</div>
+                    <div id="resume2" class="sub2">Detailed job descriptions</div>
+                    <div id="resume3" class="sub3">Military service</div>
+                    <div id="resume4" class="sub4">Professional experience</div>
+                    <div id="resume5" class="sub5">Summary of accomplishments</div>
+                </div>
+
+                <div id="aboutSubText" class="hidden textPosition">
+                    <div id="about1" class="sub1">My Family</div> 
+                    <div id="about2" class="sub2">Projects</div>
+                    <div id="about3" class="sub3">Goals for the future</div>
+                    <div id="about4" class="sub4">Digital contact information</div>
+                    <div id="about5" class="sub5"></div>
+                </div>
+
+                <div id="skillsSubText" class="hidden textPosition">
+                    <div id="skills1" class="sub1"></div>
+                    <div id="skills2" class="sub2">Skill charts</div>
+                    <div id="skills3" class="sub3"></div>
+                    <div id="skills4" class="sub4">Education</div>
+                    <div id="skills5" class="sub5"></div>
+                </div>
+            </nav><!-- sub text container -->
+            
+            <nav>
+                <nav class="controlBox" id="cb1" onmouseover="hideNavMenu()"></nav>
+                <nav class="controlBox" id="cb2" onmouseover="hideNavMenu()"></nav>
+                <nav class="controlBox" id="cb3" onmouseover="hideNavMenu()"></nav>
+                <nav class="controlBox" id="cb4" onmouseover="hideNavMenu()"></nav>
+                <nav class="controlBox" id="cb5" onmouseover="hideNavMenu()"></nav>
+            </nav>
+        </nav><!-- multi level navigation menu -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <main role="main" class="">
+        
+    </main><!-- content section -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        <footer id="hexFooter">
+            <article>
+                <blockquote id="blockQuote">
+                    "The only reason robots haven't taken over the world is that <br>
+                    someone, somewhere...forgot a semicolon."
+
+                    <cite id="citation" > 
+                        <small><sub>Kelly B Ward</sub></small>
+                    </cite>
+                </blockquote>
+            </article>
+        </footer><!-- footer quote -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+   
+        <script>
+           var obj = {
+               "text" : {
+                   "loadTextContainer" : {
+                       "st" : document.getElementById("loadTextContainer")
+                   },
+                   "resumeButton" : {
+                       "st" : document.getElementById("resumeSubText")
+                   },
+                   "aboutButton" : {
+                       "st" : document.getElementById("aboutSubText")
+                   },
+                   "skillsButton" : {
+                       "st" : document.getElementById("skillsSubText")
+                   }
+               },
+               "nav" : {
+                   "resumeImageContainer": {
+                        "nv": document.getElementById('resumeImageContainer'),
+                        "nvI": "#resumeImageContainer > img",
+                        "nvP": "#resumeImageContainer > p"
+                    },
+                    "aboutImageContainer": {
+                        "nv": document.getElementById('aboutImageContainer'),
+                        "nvI": "#aboutImageContainer > img",
+                        "nvP": "#aboutImageContainer > p" 
+                    },
+                    "skillsImageContainer": {
+                        "nv": document.getElementById('skillsImageContainer'),
+                        "nvI": "#skillsImageContainer > img",
+                        "nvP": "#skillsImageContainer > p"
+                    }
+               },
+               "hex" : {
+                   "mainMenuButton" : {
+                       "hx" : document.getElementById('mainMenuButton')
+                   },
+                   "facebookButton" : {
+                       "hx" : document.getElementById('facebookButton')
+                   },
+                   "linkedInButton" : {
+                       "hx" : document.getElementById('linkedInButton')
+                   },
+                   "subLevel" : {
+                       "resumeButton" : {
+                           "top" : document.getElementById('resumeButton'),
+                           "link" : "resume.html",
+                           "levelTwoButtons" : {
+                               "resumeSubButtonOne" : {
+                                   "sb" : document.getElementById('resumeSubButtonOne'),
+                                   "nm" : "resume1"
+                               },
+                               "resumeSubButtonTwo" : {
+                                   "sb" : document.getElementById('resumeSubButtonTwo'),
+                                   "nm" : "resume2"
+                               },
+                               "resumeSubButtonThree" : {
+                                   "sb" : document.getElementById('resumeSubButtonThree'),
+                                   "nm" : "resume3"
+                               },
+                               "resumeSubButtonFour" : {
+                                   "sb" : document.getElementById('resumeSubButtonFour'),
+                                   "nm" : "resume4"
+                               }
+                           }
+                       },
+                       "skillsButton" : {
+                           "top" : document.getElementById('skillsButton'),
+                           "link" : "skills.html",
+                           "levelTwoButtons" : {
+                               "skillsSubButtonOne" : {
+                                   "sb" : document.getElementById('skillsSubButtonOne'),
+                                   "nm" : "skills1"
+                               },
+                               "skillsSubButtonTwo" : {
+                                   "sb" : document.getElementById('skillsSubButtonTwo'),
+                                   "nm" : "skills2"
+                               }
+                           }
+                       },
+                       "aboutButton" : {
+                           "top" : document.getElementById('aboutButton'),
+                           "link" : "about.html",
+                           "levelTwoButtons" : {
+                               "aboutSubButtonOne" : {
+                                   "sb" : document.getElementById('aboutSubButtonOne'),
+                                   "nm" : "about1"
+                               },
+                               "aboutSubButtonTwo" : {
+                                   "sb" : document.getElementById('aboutSubButtonTwo'),
+                                   "nm" : "about2"
+                               },
+                               "aboutSubButtonThree" : {
+                                   "sb" : document.getElementById('aboutSubButtonThree'),
+                                   "nm" : "about3"
+                               },
+                               "aboutSubButtonFour" : {
+                                   "sb" : document.getElementById('aboutSubButtonFour'),
+                                   "nm" : "about4"
+                               }
+                           }
+                       }
+                   }
+               }
+            };
+        
+            function mouseOver(nv) {
+                $(obj.nav[nv.id].nvI).addClass("hidden").removeClass('visible');
+                $(obj.nav[nv.id].nvP).addClass('visible').removeClass('hidden');     
+            }
+            function mouseOut(nv) {
+                $(obj.nav[nv.id].nvI).addClass("visible").removeClass('hidden');
+                $(obj.nav[nv.id].nvP).addClass('hidden').removeClass('visible');
+            }
+            function showEmail() {
+                $("#menuImage").attr("src","images/Contact2.png");
+            }
+            function hideEmail() {
+                $("#menuImage").attr("src","images/menu.png");
+            }
+            function boxController(selector, clickedLink) {
+                window.localStorage.setItem(obj.hex.subLevel[selector.id].levelTwoButtons[clickedLink.id].nm, "true");
+                window.open(obj.hex.subLevel[selector.id].link);
+            }
+            function hideAllSubText() {
+                for(var key in obj.text) {
+                    $(obj.text[key].st).removeClass('visible').addClass('hidden');
+                }
+            }
+            function changeText(textSelect) {
+                hideAllSubText();
+                $(obj.text[textSelect.id].st).removeClass('hidden').addClass('visible');
+            }
+            function pointerOn() {
+                $(this).css({"cursor":"pointer"});
+            }
+            function pointerOff() {
+                $(this).css({"cursor":"default"});
+            }
+            function showSubLevelTwo(levelOneHover) {
+                hideSubLevelTwoController();
+                for(var key in obj.hex.subLevel[levelOneHover.id].levelTwoButtons) {
+                    $(obj.hex.subLevel[levelOneHover.id].levelTwoButtons[key].sb).removeClass('hidden').addClass('visible');
+                }
+            }
+            function hideSubLevelTwoButtons(selectedSubLevelTwoButtons) {
+                for(var key in obj.hex.subLevel[selectedSubLevelTwoButtons.id].levelTwoButtons) {
+                    $(obj.hex.subLevel[selectedSubLevelTwoButtons.id].levelTwoButtons[key].sb).removeClass('visible').addClass('hidden');
+                }
+            }
+            function hideSubLevelTwoController() {
+                var currentlyOpenSubLevelTwo = $("#resumeSubButtonOne, #skillsSubButtonOne, #aboutSubButtonOne").filter(".visible").attr("id");
+                if(currentlyOpenSubLevelTwo === "resumeSubButtonOne") {
+                    hideSubLevelTwoButtons(resumeButton);
+                } else if(currentlyOpenSubLevelTwo === "skillsSubButtonOne") {
+                    hideSubLevelTwoButtons(skillsButton);
+                } else if(currentlyOpenSubLevelTwo === "aboutSubButtonOne") {
+                    hideSubLevelTwoButtons(aboutButton);
+                }
+            }
+            function activateButtons() {
+                $('#resumeButton').hover(function () { changeText(resumeButton);
+                    showSubLevelTwo(obj.hex.subLevel.resumeButton.top);},
+                    "");
+                $('#skillsButton').hover(function () { changeText(skillsButton);
+                    showSubLevelTwo(obj.hex.subLevel.skillsButton.top);},
+                    "");
+                $('#aboutButton').hover( function () { changeText(aboutButton);
+                    showSubLevelTwo(obj.hex.subLevel.aboutButton.top);},
+                    "");
+            }
+            function activateLevelOne() {   
+                activateButtons(); 
+                changeText(loadTextContainer);
+                $("#menuImage").removeClass('image').addClass('menuImage');
+                $("#menuSubLevelOne").css({"display" : "block"});
+                window.setTimeout( function() {$($("#menuSubLevelOne")).removeClass('hidden').addClass('visible');}, 100);
+            }
+                    	
+            function hideNavMenu() {    
+                pointerOff(); 
+                hideSubLevelTwoController(); 
+                changeText(loadTextContainer);
+                $("#menuImage").removeClass('menuImage').addClass('image');    
+                $("#menuSubLevelOne").removeClass('visible').addClass('hidden');
+                window.setTimeout( function() {$($("#menuSubLevelOne")).css({"display" : "none"});}, 500);
+            }
+        </script><!-- navigation hover script -->
+        <script>
+            window.onload = function() {$(document.body).removeClass('hidden').addClass('visible');};
+        </script><!-- ANTI FOUC SCRIPT / MUST BE LAST SCRIPT IN DOM -->
+    </body>
+</html>
